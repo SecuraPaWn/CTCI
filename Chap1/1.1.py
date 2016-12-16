@@ -1,4 +1,4 @@
-"""Foobar.py: Implement algorithm to determine if string has unique characters."""
+"""1.1.py: Implement algorithm to determine if string has unique characters.2hat if you cannot use additional data structures"""
 __author__ = 'karsaxen'
 
 import unittest
