@@ -30,3 +30,4 @@ s1="waterbottle"
 s2="erbottlewat"
 bool = isMirrorSubstring(s1,s2)
 print(bool)
+
