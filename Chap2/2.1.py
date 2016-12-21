@@ -31,6 +31,7 @@ class LinkedList(object):
         self.head = new_node
 
     def show(self):
+        print("\n Displaying the linked list :-")
         current = self.head
         while current:
             data = current.get_data()
@@ -54,16 +55,22 @@ class LinkedList(object):
         else:
             previous.set_next(current.get_next())
 
-    def find_middle(self):
-        flip = False
-        half = self.head
-        current = self.head
-        while current:
-            current = current.get_next()
-            if (flip):
-                half = half.get_next()
-            flip = not flip
-        print("\n Middle node is %s" % str(half.get_data()))
+    def deleteDups(self):
+        print("\n Removing Duplicates ...")
+        header = self.head
+        iterator = None
+        while header != None:
+            iterator = header
+            while iterator !=None:
+                prev = iterator
+                iterator = iterator.get_next()
+                if iterator is None:
+                    break
+                if iterator.get_data() == header.get_data():
+                    next = iterator.get_next()
+                    prev.set_next(next)
+
+            header = header.get_next()
 
 s = LinkedList()
 s.insert(31)
@@ -72,5 +79,8 @@ s.insert(3)
 s.insert(7)
 s.insert(10)
 s.insert(4)
+s.insert(7)
+s.insert(3)
 s.show()
-s.find_middle()
+s.deleteDups()
+s.show()
