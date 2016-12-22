@@ -36,6 +36,23 @@ class LinkedList(object):
             print(str(data)+"->",end="")
             current = current.get_next()
 
+    #In this approach we maintain two pointers. One moves K position ahead first . Once both are moved together the first one
+    #Will be at length - K position.
+
+    def findkelement(self,k):
+        anchor = self.head
+        follower = self.head
+        i=0
+        while i < k:
+            anchor = anchor.get_next()
+            i = i+1
+        while anchor:
+            anchor = anchor.get_next()
+            follower = follower.get_next()
+        print("\n Displaying the Kth from last element :-")
+        kdata = follower.get_data()
+        print(str(kdata))
+
     def delete(self, data):
         current = self.head
         previous = None
@@ -52,8 +69,7 @@ class LinkedList(object):
             self.head = current.get_next()
         else:
             previous.set_next(current.get_next())
-			
-			
+
 s = LinkedList()
 s.insert(31)
 s.insert(2)
@@ -62,3 +78,6 @@ s.insert(7)
 s.insert(10)
 s.insert(4)
 s.show()
+s.findkelement(3)
+s.findkelement(4)
+s.findkelement(1)
