@@ -52,6 +52,35 @@ class LinkedList(object):
         else:
             previous.set_next(current.get_next())
 
+    def IsPalindrome(self):
+        flip = False
+        half = self.head
+        current = self.head
+        firsthalf = []
+        secondhalf = []
+        while current:
+            if (flip):
+                data = half.get_data()
+                firsthalf.append(data)
+                half = half.get_next()
+            flip = not flip
+            current = current.get_next()
+        print("\nFirst half of the list:")
+        print(firsthalf)
+        half = half.get_next() #Before appending the second list , advance the second list after moving the pointer one step
+        while half:
+            data = half.get_data()
+            secondhalf.append(data)
+            half = half.get_next()
+        print("\nSecond half of the list:")
+        print(secondhalf)
+        print("\nReversing Second half of the list ...")
+        secondhalf.reverse()
+        if firsthalf == secondhalf:
+            print("This is a palindrome linked list ...")
+        else:
+            print("This is not a palindrome linked list ...")
+
 s = LinkedList()
 s.insert(31)
 s.insert(2)
@@ -59,4 +88,15 @@ s.insert(3)
 s.insert(7)
 s.insert(10)
 s.insert(4)
+s.insert(5)
 s.show()
+s.IsPalindrome()
+
+s1 = LinkedList()
+s1.insert(0)
+s1.insert(1)
+s1.insert(2)
+s1.insert(1)
+s1.insert(0)
+s1.show()
+s1.IsPalindrome()
